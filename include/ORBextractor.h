@@ -23,7 +23,10 @@
 
 #include <vector>
 #include <list>
-#include <opencv/cv.h>
+
+//#include <opencv/cv.h>
+#include <opencv/imgproc/imgproc_c.h>
+#include <opencv/highgui/highgui_c.h>
 
 
 namespace ORB_SLAM2
