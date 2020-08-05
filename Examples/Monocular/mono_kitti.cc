@@ -35,11 +35,16 @@ void LoadImages(const string &strSequence, vector<string> &vstrImageFilenames,
                 vector<double> &vTimestamps);
 
 int main(int argc, char **argv)
-{
+{   
+
     if(argc != 4)
     {
         cerr << endl << "Usage: ./mono_kitti path_to_vocabulary path_to_settings path_to_sequence" << endl;
         return 1;
+    }
+    else{
+        cout<< "args num right"<<endl;
+        cout<<string(argv[1])<<endl;
     }
 
     // Retrieve paths to images

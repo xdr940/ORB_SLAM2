@@ -23,11 +23,9 @@
 #include<algorithm>
 #include<fstream>
 #include<chrono>
-
 #include<opencv2/core/core.hpp>
 
 #include<System.h>
-
 using namespace std;
 
 void LoadImages(const string &strImagePath, const string &strPathTimes,
@@ -72,13 +70,15 @@ int main(int argc, char **argv)
         // Read image from file
         im = cv::imread(vstrImageFilenames[ni],cv::IMREAD_UNCHANGED);
         double tframe = vTimestamps[ni];
-
         if(im.empty())
         {
             cerr << endl << "Failed to load image at: "
                  <<  vstrImageFilenames[ni] << endl;
             return 1;
         }
+
+
+
 
 #ifdef COMPILEDWITHC11
         std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();

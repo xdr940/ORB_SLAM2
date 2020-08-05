@@ -1,31 +1,46 @@
-echo "Configuring and building Thirdparty/DBoW2 ..."
 
-cd Thirdparty/DBoW2
-mkdir build
-cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release
-make -j
+declare DebugOrRelease=Debug
+declare WorkFolder=$PWD
+declare DBoW2_BuildFolder=${WorkFolder}/"Thirdparty/DBoW2/build"
+declare g2o_BuildFolder=${WorkFolder}/"Thirdparty/g2o/build"
+declare orb_slam2BuildFolder=${WorkFolder}/"build"
 
-cd ../../g2o
-
-echo "Configuring and building Thirdparty/g2o ..."
-
-mkdir build
-cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release
-make -j
-
-cd ../../../
-
-echo "Uncompress vocabulary ..."
-
-cd Vocabulary
+cd $WorkFolder/Vocabulary
 tar -xf ORBvoc.txt.tar.gz
-cd ..
 
-echo "Configuring and building ORB_SLAM2 ..."
 
-mkdir build
-cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release
-make -j
+
+#DBoW2
+if [ ! -d $DBoW2_BuildFolder ];then
+    echo $DBoW2_BuildFolder already exist 
+else
+    echo "--> Configuring and building Thirdparty/DBoW2 ..."
+    mkdir $DBoW2_BuildFolder
+    cd $DBoW2_BuildFolder
+    cmake .. -DCMAKE_BUILD_TYPE=$DebugOrRelease
+    make -j
+fi
+
+#g2o
+if [ ! -d $g2o_BuildFolder ];then
+    echo $g2o_BuildFolder already exist 
+else
+    echo "--> Configuring and building Thirdparty/DBoW2 ..."
+    mkdir $g2o_BuildFolder
+    cd $g2o_BuildFolder
+    cmake .. -DCMAKE_BUILD_TYPE=$DebugOrRelease
+    make -j
+fi
+
+
+#orb slam2
+if [ ! -d $orb_slam2BuildFolder ];then
+    echo $orb_slam2BuildFolder already exist 
+else
+    echo "--> Configuring and building ORB_SLAM2 ..."
+    mkdir $orb_slam2BuildFolder
+    cd $orb_slam2BuildFolder
+    cmake .. -DCMAKE_BUILD_TYPE=$DebugOrRelease
+    make -j
+fi
+
