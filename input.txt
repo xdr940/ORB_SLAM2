@@ -1,5 +1,9 @@
-./Examples/Monocular/mono_kitti ./Vocabulary/ORBvoc.txt ./Examples/Monocular/KITTI03.yaml /bluep2/datasets/kitti_odo_gray/sequences/03
+./Examples/Monocular/bin/mono_kitti ./Vocabulary/ORBvoc.txt ./Examples/Monocular/yaml_settings/KITTI04-12.yaml /bluep2/datasets/kitti_odo_gray/sequences/04
 
+./Examples/Monocular/bin/mono_custom ./Vocabulary/ORBvoc.txt ./Examples/Monocular/yaml_settings/KITTI04-12.yaml /bluep2/datasets/kitti_odo_gray/sequences/04
+
+
+./mono_custom ./Vocabulary/ORBvoc.txt ./Examples/Monocular/yaml_settings/KITTI04-12.yaml /bluep2/datasets/kitti_odo_gray/sequences/04
 
 if [ ! -d "./Thirdparty/DBoW2/build" ];then
   echo "mkdir "
